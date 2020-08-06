@@ -5,14 +5,13 @@ class Vote < ApplicationRecord
 
   # Validations
 
-  validates :photo_id, :uniqueness => { :message => "already liked" }
+  validates :photo_id, uniqueness: { message: "already liked" }
 
-  validates :photo_id, :presence => true
+  validates :photo_id, presence: true
 
   # Scopes
 
   def to_s
     created_at
   end
-
 end
