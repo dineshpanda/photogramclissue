@@ -3,7 +3,7 @@ class VotesController < ApplicationController
 
   # GET /votes
   def index
-    @votes = Vote.all
+    @votes = Vote.page(params[:page]).per(10)
   end
 
   # GET /votes/1
