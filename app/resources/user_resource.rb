@@ -32,6 +32,22 @@ class UserResource < ApplicationResource
 
   # Indirect associations
 
+  has_many :senders, resource: UserResource do
+    assign_each do |user, users|
+      users.select do |u|
+        u.id.in?(user.senders.map(&:id))
+      end
+    end
+  end
+
+  has_many :recipients, resource: UserResource do
+    assign_each do |user, users|
+      users.select do |u|
+        u.id.in?(user.recipients.map(&:id))
+      end
+    end
+  end
+
   has_many :followers, resource: UserResource do
     assign_each do |user, users|
       users.select do |u|
