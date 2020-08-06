@@ -29,6 +29,8 @@ class FriendRequest < ApplicationRecord
 
   # Scopes
 
+  scope :accepted, -> { where(:status => "accepted") }
+
   def to_s
     sender.to_s
   end
