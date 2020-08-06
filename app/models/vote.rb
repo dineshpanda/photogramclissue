@@ -5,6 +5,8 @@ class Vote < ApplicationRecord
 
   # Validations
 
+  validates :photo_id, :uniqueness => { :message => "already liked" }
+
   validates :photo_id, :presence => true
 
   # Scopes
