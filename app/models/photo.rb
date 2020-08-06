@@ -1,6 +1,9 @@
 class Photo < ApplicationRecord
   # Direct associations
 
+  has_many   :comments,
+             :dependent => :destroy
+
   belongs_to :owner,
              :class_name => "User",
              :counter_cache => true
